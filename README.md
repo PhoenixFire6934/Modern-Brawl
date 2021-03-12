@@ -1,6 +1,6 @@
 # Modern Brawl
 
-Simple Brawl Stars v28.189 server emulator wrote in Python.
+Simple Brawl Stars v28.189 server emulator written in Python.
 
 ![ScreenShot](https://cdn.discordapp.com/attachments/817282221177569332/817717138256560188/Screenshot_20210306-131235_Modern_Brawl.jpg) 
 
