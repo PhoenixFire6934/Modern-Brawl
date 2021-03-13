@@ -8,7 +8,7 @@ Simple Brawl Stars v28.189 server emulator written in Python.
 In a terminal, type __`python main.py`__
 
 ### Configuring the client app
-To connect to your server, a special client is required. Download the [base APK](https://mega.nz/file/KLIVnICL#votxNJyMtT5dsqyP8TWY9ozTpZEJkZgIseur9rzxpCw) and easily change the host IP in `libmb.config.so`
+To connect to your server, a special client is required. Download the [base APK](https://mega.nz/file/XPg0UaLD#sD8bVTInSIG8DbP5jn8rjjLjfmQWBSXmGQT8JficdV0) and easily change the host IP in `libmb.config.so`
 
 ### Contact me:
 * **Discord**: PhoenixFire#6879
