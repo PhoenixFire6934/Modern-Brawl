@@ -27,8 +27,8 @@ class LogicClientAvatar:
         self.writeVint(0)
         self.writeVint(0)
 
-        self.writeString(self.player.name)     # Player Name
-        self.writeBoolean(self.player.nameSet) # Name Set By User
+        self.writeString(self.player.Data['Name'])     # Player Name
+        self.writeBoolean(self.player.Data['NameSet']) # Name Set By User
 
         self.writeInt(0)
 
