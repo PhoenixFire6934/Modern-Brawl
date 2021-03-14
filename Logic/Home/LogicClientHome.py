@@ -45,6 +45,7 @@ class LogicClientHome:
         self.writeVint(0)
         self.writeVint(0)
         self.writeVint(0)
+        self.writeVint(0)
 
         self.writeUInt8(0)
 
@@ -53,7 +54,6 @@ class LogicClientHome:
         self.writeVint(0)
         self.writeVint(0)
 
-        self.writeVint(0)
         self.writeVint(0)
 
         self.writeBool(False)
@@ -65,7 +65,7 @@ class LogicClientHome:
         self.writeVint(2)
         self.writeVint(2)
 
-        self.writeVint(0)  # Name Change Cost
+        self.writeVint(0)   # Name Change Cost
         self.writeVint(0)   # Name Change Timer
 
         self.writeVint(0)  # array
@@ -99,12 +99,11 @@ class LogicClientHome:
         for x in range(0):
             pass
 
-        self.writeVint(1) # Brawl Pass
+        # Brawl Pass Array
+        self.writeVint(1)
         for x in range(1):
             self.writeVint(1) # Current Season
-
             self.writeVint(0) # Pass Tokens
-
             self.writeVint(1) # Premium Pass Progress
             self.writeVint(1) # Free Pass Progress
 
@@ -121,11 +120,36 @@ class LogicClientHome:
         for x in range(0):
             pass
 
-        self.writeByte(1)
-        self.writeVint(0)
+        # Quests Array
+        self.writeBoolean(True)
+        if True:
+            self.writeVint(1)
+            for x in range(1):
+                self.writeVint(0)     # Unknown
+                self.writeVint(0)     # Unknown
+                self.writeVint(1)     # Mission Type
+                self.writeVint(2)     # Achieved Goal
+                self.writeVint(8)     # Quest Goal
+                self.writeVint(10)    # Tokens Reward
+                self.writeVint(0)     # Unknown
+                self.writeVint(0)     # Current level
+                self.writeVint(0)     # Max level
+                self.writeVint(1)     # Quest Type
+                self.writeUInt8(2)    # Quest State
+                self.writeScId(16, 0) # Brawler SCID
+                self.writeVint(0)     # GameMode
+                self.writeVint(0)     # Unknown
+                self.writeVint(0)     # Unknown
 
-        self.writeByte(1)
-        self.writeVint(0)
+        # Emotes Array
+        self.writeBoolean(True)
+        if True:
+            self.writeVint(len(self.player.emotesID))
+            for emote_id in self.player.emotesID:
+                self.writeScId(52, emote_id)
+                self.writeVint(1)     # Unknown
+                self.writeVint(1)     # Unknown
+                self.writeVint(1)     # Unknown
 
 
         # sub_2CEABC #
@@ -211,8 +235,7 @@ class LogicClientHome:
         self.writeVint(0)
         self.writeVint(10)
         self.writeVint(0)
-
-        self.writeVint(0)
+        self.writeUInt8(0)
         self.writeVint(0)
         self.writeVint(0)
 

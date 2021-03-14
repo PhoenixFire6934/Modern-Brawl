@@ -2,6 +2,7 @@ from Database.Tables.Player import *
 from Utils.Helpers import *
 
 from Files.CsvLogic.Characters import Characters
+from Files.CsvLogic.Emotes import Emotes
 from Files.CsvLogic.Skins import Skins
 from Files.CsvLogic.Cards import Cards
 
@@ -10,9 +11,11 @@ class Player:
 	token = None
 
 	skinsID       = Skins.get_skins_id()
+	emotesID      = Emotes.get_emotes_id()
 	brawlersID    = Characters.get_brawlers_id()
 	cardsSkillsID = Cards.get_spg_id()
 	cardsUnlockID = Cards.get_brawler_unlock()
+
 
 	brawlers_skins = {}
 	for id in brawlersID:

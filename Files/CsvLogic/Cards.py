@@ -1,11 +1,8 @@
 import csv
 
 class Cards:
-
     def get_spg_id():
-
         CardSkillsID = []
-
         with open('GameAssets/csv_logic/cards.csv') as csv_file:
             csv_reader = csv.reader(csv_file, delimiter=',')
             line_count = 0
@@ -23,8 +20,6 @@ class Cards:
 
 
     def check_spg_id(self, id):
-
-
         with open('GameAssets/csv_logic/cards.csv') as csv_file:
             csv_reader = csv.reader(csv_file, delimiter=',')
             line_count = 0
@@ -80,7 +75,6 @@ class Cards:
 
 
     def get_brawler_unlock():
-
         CardUnlockID = []
 
         with open('GameAssets/csv_logic/cards.csv') as csv_file:

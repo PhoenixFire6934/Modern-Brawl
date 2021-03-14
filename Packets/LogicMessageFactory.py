@@ -35,7 +35,7 @@ packets = {
     14777: SetDoNotDistrubMessage,
 
     14109: GoHomeFromOfflinePractiseMessage,
-    14110: AskForBattleEndMessage,
+    14110: AskForBattleEndMessage
 
 
 }

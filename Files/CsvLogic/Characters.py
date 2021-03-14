@@ -2,11 +2,8 @@ import csv
 
 
 class Characters:
-
     def get_brawlers_id():
-
         BrawlersID = []
-
         with open('GameAssets/csv_logic/characters.csv') as csv_file:
             csv_reader = csv.reader(csv_file, delimiter=',')
             line_count = 0
@@ -21,13 +18,12 @@ class Characters:
 
             return BrawlersID
 
+
     def get_brawler_by_skin_id(self, skin_id):
         skins_file = open('GameAssets/csv_logic/skins.csv')
         csv_reader = csv.reader(skins_file, delimiter=',')
         line_count = 0
-
         for row in csv_reader:
-
             if line_count == 0 or line_count == 1:
                 line_count += 1
             else:
