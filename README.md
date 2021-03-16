@@ -12,7 +12,7 @@ In a terminal, type __`python main.py`__
 
 ### Configuring the client app
 To connect to your server, a **patched client** is required. 
-Download this [base APK](https://mega.nz/file/KLIVnICL#votxNJyMtT5dsqyP8TWY9ozTpZEJkZgIseur9rzxpCw) and change the host IP in `libmb.config.so`
+Download this [base APK](https://mega.nz/file/mW4lTCIB#jfmOB1hxkXF-RExTV2O1YbK6Sn6gn5mWI_9tUYJTFhw) and change the host IP in `libmb.config.so`
 
 ### Need help?
 Open an issue or contact me on **Discord**: PhoenixFire#6879
