@@ -1,5 +1,5 @@
 from Protocol.Messages.Server.Gameroom.TeamMessage import TeamMessage
-from Core.Utils.Reader import Reader
+from Utils.Reader import Reader
 import random
 from Logic.EventSlots import EventSlots
 

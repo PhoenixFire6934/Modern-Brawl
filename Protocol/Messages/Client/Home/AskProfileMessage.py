@@ -1,5 +1,5 @@
 from Protocol.Messages.Server.Home.PlayerProfileMessage import PlayerProfileMessage
-from Core.Utils.Reader import Reader
+from Utils.Reader import Reader
 
 
 class AskProfileMessage(Reader):

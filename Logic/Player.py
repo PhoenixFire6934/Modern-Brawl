@@ -1,5 +1,5 @@
-from Core.Database.Tables.Player import *
-from Core.Utils.Helpers import *
+from Database.Tables.Player import *
+from Utils.Helpers import *
 
 from Files.CsvLogic.Characters import Characters
 from Files.CsvLogic.Emotes import Emotes

@@ -1,6 +1,6 @@
 from Protocol.Messages.Server.Battle.BattleEndMessage import BattleEndMessage
 
-from Core.Utils.Reader import Reader
+from Utils.Reader import Reader
 
 
 class AskForBattleEndMessage(Reader):

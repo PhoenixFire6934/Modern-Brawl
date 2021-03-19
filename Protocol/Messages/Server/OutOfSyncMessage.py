@@ -1,4 +1,4 @@
-from Core.Utils.Writer import Writer
+from Utils.Writer import Writer
 
 
 class OutOfSyncMessage(Writer):

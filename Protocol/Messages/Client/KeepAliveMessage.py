@@ -1,5 +1,5 @@
 from Protocol.Messages.Server.KeepAliveOkMessage import KeepAliveOkMessage
-from Core.Utils.Reader import Reader
+from Utils.Reader import Reader
 
 
 class KeepAliveMessage(Reader):

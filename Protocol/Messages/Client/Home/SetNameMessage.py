@@ -1,6 +1,6 @@
 from Protocol.Commands.Server.LogicChangeAvatarNameCommand import LogicChangeAvatarNameCommand
 from Protocol.Messages.Server.Home.AvatarNameChangeFailedMessage import AvatarNameChangeFailedMessage
-from Core.Utils.Reader import Reader
+from Utils.Reader import Reader
 
 
 class SetNameMessage(Reader):

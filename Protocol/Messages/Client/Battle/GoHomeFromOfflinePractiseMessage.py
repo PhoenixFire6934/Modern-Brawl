@@ -1,5 +1,5 @@
 from Protocol.Messages.Server.Home.OwnHomeDataMessage import OwnHomeDataMessage
-from Core.Utils.Reader import Reader
+from Utils.Reader import Reader
 
 
 class GoHomeFromOfflinePractiseMessage(Reader):

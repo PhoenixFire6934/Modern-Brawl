@@ -1,5 +1,5 @@
 from Protocol.Messages.Server.Home.AvatarNameCheckResponseMessage import AvatarNameCheckResponseMessage
-from Core.Utils.Reader import Reader
+from Utils.Reader import Reader
 
 
 class AvatarNameCheckRequestMessage(Reader):

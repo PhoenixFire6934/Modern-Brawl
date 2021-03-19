@@ -1,5 +1,5 @@
 from Protocol.Commands.Server.LogicSetDoNotDistrubCommand import LogicSetDoNotDistrubCommand
-from Core.Utils.Reader import Reader
+from Utils.Reader import Reader
 
 
 class SetDoNotDistrubMessage(Reader):

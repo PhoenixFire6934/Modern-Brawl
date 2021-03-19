@@ -1,4 +1,4 @@
-from Core.Utils.Reader import Reader
+from Utils.Reader import Reader
 from Files.CsvLogic.Cards import Cards
 
 class LogicSelectSkinCommand(Reader):

@@ -1,5 +1,5 @@
 from Protocol.Messages.Server.Gameroom.TeamLeftMessage import TeamLeftMessage
-from Core.Utils.Reader import Reader
+from Utils.Reader import Reader
 
 
 class TeamLeaveMessage(Reader):

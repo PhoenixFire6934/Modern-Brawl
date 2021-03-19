@@ -1,4 +1,4 @@
-from Core.Utils.Reader import Reader
+from Utils.Reader import Reader
 from Protocol.LogicCommandFactory import commands
 
 

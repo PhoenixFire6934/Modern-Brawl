@@ -2,7 +2,7 @@ from Protocol.Messages.Server.Login.LoginOkMessage import LoginOkMessage
 from Protocol.Messages.Server.Login.LoginFailedMessage import LoginFailedMessage
 from Protocol.Messages.Server.Home.OwnHomeDataMessage import OwnHomeDataMessage
 
-from Core.Utils.Reader import Reader
+from Utils.Reader import Reader
 
 
 class LoginMessage(Reader):

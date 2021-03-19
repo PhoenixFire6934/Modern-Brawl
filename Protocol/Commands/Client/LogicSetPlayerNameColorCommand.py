@@ -1,6 +1,6 @@
 
 
-from Core.Utils.Reader import Reader
+from Utils.Reader import Reader
 
 class LogicSetPlayerNameColorCommand(Reader):
     def __init__(self, client, player, initial_bytes):

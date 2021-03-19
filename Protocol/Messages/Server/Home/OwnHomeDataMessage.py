@@ -1,4 +1,4 @@
-from Core.Utils.Writer import Writer
+from Utils.Writer import Writer
 from Logic.Home.LogicClientHome import LogicClientHome
 from Logic.Avatar.LogicClientAvatar import LogicClientAvatar
 

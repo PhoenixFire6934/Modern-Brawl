@@ -1,7 +1,7 @@
 from Protocol.Messages.Server.Gameroom.TeamMessage import TeamMessage
 from Files.CsvLogic.Characters import Characters
 from Files.CsvLogic.Cards import Cards
-from Core.Utils.Reader import Reader
+from Utils.Reader import Reader
 
 
 class TeamChangeMemberSettingsMessage(Reader):
