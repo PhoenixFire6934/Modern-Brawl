@@ -26,7 +26,7 @@ class LogicClientHome:
 
         self.writeVint(0)  # array
         for x in range(0):
-            pass
+            self.writeVint(x)
 
         # Selected Skins array
         self.writeVint(len(self.player.brawlers_skins))
@@ -40,7 +40,7 @@ class LogicClientHome:
 
         self.writeVint(0)  # array
         for x in range(0):
-            pass
+            self.writeScId(29, 0)
 
         self.writeVint(0)
         self.writeVint(0)
@@ -50,9 +50,9 @@ class LogicClientHome:
         self.writeUInt8(0)
 
         self.writeVint(0)
+        self.writeVint(86400) # Trophy League End Timer
         self.writeVint(0)
-        self.writeVint(0)
-        self.writeVint(0)
+        self.writeVint(86400) # Season End Timer
 
         self.writeVint(0)
 
@@ -68,20 +68,50 @@ class LogicClientHome:
         self.writeVint(0)   # Name Change Cost
         self.writeVint(0)   # Name Change Timer
 
-        self.writeVint(0)  # array
+        #  Shop Offers array - sub_674DAC
+        self.writeVint(0)
         for x in range(0):
-            pass
+            self.writeVint(1) # array
+            for x in range(1):
+                self.writeVint(21)    # Offer ID
+                self.writeVint(1)     # Offer Multiplier
+                self.writeScId(52, 2) # SCID
+                self.writeVint(0)     # Unknown
 
+            self.writeVint(0)     # Shop Type
+            self.writeVint(0)     # Offer Cost
+            self.writeVint(0)     # Offer Timer
+            self.writeVint(2)     # Offer State
+            self.writeVint(0)     # Unknown
+            self.writeUInt8(0)    # Offer Purchased
+            self.writeVint(0)     # Unknown
+            self.writeUInt8(0)    # Shop Display
+            self.writeVint(0)     # Unknown
+
+            # sub_34DCDC
+            self.writeInt(0)      # Unknown
+            self.writeStringReference('') # Offer Text
+
+            self.writeUInt8(0)    # Unknown
+            self.writeString()    # Unknown
+            self.writeVint(0)     # Unknown
+            self.writeUInt8(0)    # Unknown
+            self.writeVint(2)     # Unknown
+            self.writeVint(3)     # Unknown
+
+        # sub_1F09D8
         self.writeVint(0)  # array
         for x in range(0):
-            pass
+            self.writeVint(0)
+            self.writeVint(0)
+            self.writeVint(0)
 
         self.writeVint(0)
         self.writeVint(0)
 
         self.writeVint(0)  # array
         for x in range(0):
-            pass
+            self.writeVint(x)
 
         self.writeVint(0)  # Tickets
         self.writeVint(0)
@@ -91,21 +121,26 @@ class LogicClientHome:
         self.writeString("RO")
         self.writeString("Modern Brawl")
 
+        # sub_587CF4
         self.writeVint(0)  # array
         for x in range(0):
-            pass
+            self.writeInt(0)
+            self.writeInt(0)
 
+        # sub_4505B4
         self.writeVint(0)  # array
         for x in range(0):
-            pass
+            self.writeVint(0)
+            self.writeScId(0, 0)
+            self.writeVint(0)
 
         # Brawl Pass Array
         self.writeVint(1)
         for x in range(1):
-            self.writeVint(1) # Current Season
-            self.writeVint(0) # Pass Tokens
-            self.writeVint(1) # Premium Pass Progress
-            self.writeVint(1) # Free Pass Progress
+            self.writeVint(1)  # Current Season
+            self.writeVint(0)  # Pass Tokens
+            self.writeUInt8(1) # Brawl Pass Activated
+            self.writeVint(2)  # Pass Progress
 
             self.writeInt8(1)
             for i in range(4):
@@ -115,10 +150,11 @@ class LogicClientHome:
             for i in range(4):
                 self.writeInt(4)
 
-
+        # sub_67CBFC
         self.writeVint(0)  # array
         for x in range(0):
-            pass
+            self.writeVint(0)
+            self.writeVint(0)
 
         # Quests Array
         self.writeBoolean(True)
@@ -173,61 +209,57 @@ class LogicClientHome:
 
         # LOGIC EVENTS #
 
+        # sub_21D148
         count = len(EventSlots.maps)
-
         self.writeVint(count + 1)  # Map slots count
         for i in range(count + 1):
             self.writeVint(i)
 
+        # sub_359438
         self.writeVint(count)
-
         for map in EventSlots.maps:
             self.writeVint(EventSlots.maps.index(map) + 1)
             self.writeVint(EventSlots.maps.index(map) + 1)
+
             self.writeVint(map['Ended'])
-            self.writeVint(EventSlots.Timer)
-
-            self.writeVint(10)
-
+            self.writeVint(map['Timer'])
+            self.writeVint(0)
             self.writeScId(15, map['ID'])
-
             self.writeVint(map['Status'])
 
             self.writeString()
             self.writeVint(0)
             self.writeVint(0)
             self.writeVint(0)
-
             self.writeBoolean(False)
-
             self.writeVint(0)
             self.writeVint(0)
 
+         # sub_359438
         self.writeVint(0)
+        for x in range(0):
+            self.writeVint(0)
+            self.writeVint(0)
+            self.writeVint(0)
+            self.writeVint(0)
+            self.writeVint(0)
+            self.writeScId(15, 0)
+            self.writeVint(0)
+            self.writeString()
+            self.writeVint(0)
+            self.writeVint(0)
+            self.writeVint(0)
+            self.writeBoolean(False)
+            self.writeVint(0)
+            self.writeVint(0)
 
-        self.writeVint(8)
-        for i in [20, 35, 75, 140, 290, 480, 800, 1250]:
-            self.writeVint(i)
-
-        self.writeVint(8)
-        for i in [1, 2, 3, 4, 5, 10, 15, 20]:
-            self.writeVint(i)
-
-        self.writeVint(3)
-        for i in [10, 30, 80]:
-            self.writeVint(i)
-
-        self.writeVint(3)
-        for i in [6, 20, 60]:
-            self.writeVint(i)
-
-        self.writeVint(4)
-        for i in [20, 50, 140, 280]:
-            self.writeVint(i)
-
-        self.writeVint(4)
-        for i in [150, 400, 1200, 2600]:
-            self.writeVint(i)
+        # 6 x sub_3DC00C
+        self.writeArrayVint([20, 35, 75, 140, 290, 480, 800, 1250])
+        self.writeArrayVint([1, 2, 3, 4, 5, 10, 15, 20])
+        self.writeArrayVint([10, 30, 80])
+        self.writeArrayVint([6, 20, 60])
+        self.writeArrayVint([20, 50, 140, 280])
+        self.writeArrayVint([150, 400, 1200, 2600])
 
         self.writeVint(0)
         self.writeVint(0)
@@ -238,22 +270,64 @@ class LogicClientHome:
         self.writeUInt8(0)
         self.writeVint(0)
         self.writeVint(0)
-
         self.writeUInt8(1)
 
+        # sub_1D0FA4
         self.writeVint(0)  # array
         for x in range(0):
-            pass
+            self.writeScId(0, 0)
+            self.writeInt(0)
+            self.writeInt(0)
 
+        # sub_587CF4
         self.writeVint(1)  # array
         for x in range(1):
             self.writeInt(1)
             self.writeInt(41000014)
 
+        # sub_6190D0
         self.writeVint(0)  # array
         for x in range(0):
-            pass
+            self.writeVint(0)
+            self.writeVint(0)
+            self.writeVint(0)
+            self.writeVint(0)
 
         self.writeVint(0)  # array
         for x in range(0):
+            self.writeVint(0)
+            self.writeVint(0)
+
+            # 3 x sub_34DCDC
+            for x in range(3):
+                self.writeInt(0)
+                self.writeStringReference('')
+
+
+        self.writeLong(self.player.ID)
+
+        self.writeVint(0) # array
+        for x in range(0):
             pass
+
+        self.writeVint(0)
+
+        self.writeUInt8(0)
+
+        bool = False
+        self.writeBool(bool)
+        if bool:
+            self.writeVint(0)
+            # sub_5A01C0
+            for x in range(0):
+                self.writeVint(0)
+                self.writeScId(0, 0)
+                self.writeVint(0)
+                self.writeScId(0, 0)
+                self.writeScId(0, 0)
+                self.writeScId(0, 0)
+
+        self.writeVint(0) # array
+        for x in range(0):
+            self.writeScId(0, 0)
+

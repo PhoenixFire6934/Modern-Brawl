@@ -5,37 +5,19 @@ class LogicClientAvatar:
 
 
     def encodeAvatar(self):
-        self.writeLong(self.player.ID)
+        self.writeLogicLong(self.player.ID)
+        self.writeLogicLong(self.player.ID)
+        self.writeLogicLong(self.player.ID)
 
-        self.writeVint(0) # array
-        for x in range(0):
-            pass
-
-        self.writeVint(0)
-
-        self.writeUInt8(0)
-
-        self.writeVint(0)
-        self.writeVint(0)
-
-        self.writeVint(0)
-        self.writeVint(self.player.ID)
-
-        self.writeVint(0)
-        self.writeVint(0)
-
-        self.writeVint(0)
-        self.writeVint(0)
-
-        self.writeString(self.player.Data['Name'])     # Player Name
-        self.writeBoolean(self.player.Data['NameSet']) # Name Set By User
+        self.writeString(self.player.Data['Name'])  # Player Name
+        self.writeBool(self.player.Data['NameSet']) # Name Set By User
 
         self.writeInt(0)
 
         # Commodity count
         self.writeVint(8)
 
-        # Unlocked Brawlers $ Resources array
+        # Unlocked Brawlers & Resources array
         self.writeVint(len(self.player.cardsUnlockID) + len(self.player.Data['Resources']))
         for unlock_id in self.player.cardsUnlockID:
             self.writeVint(23)
@@ -94,8 +76,5 @@ class LogicClientAvatar:
         self.writeVint(0)
         self.writeVint(0)
         self.writeVint(0)
-
-        # Tutorial Step
-        self.writeVint(2)
-
+        self.writeVint(2) # Tutorial Step
         self.writeVint(0)

@@ -4,7 +4,7 @@ from threading import *
 
 from Logic.Device import Device
 from Logic.Player import Player
-from Packets.LogicMessageFactory import packets
+from Protocol.LogicMessageFactory import packets
 
 
 def _(*args):
