@@ -26,6 +26,5 @@ class EndClientTurnMessage(Reader):
                     command.process(self)
                 except AttributeError:
                     command(self.client, self.player).send() # Exception for OutOfSyncMessage
-
             else:
                 print(f'[INFO] Command not handled! ({self.commandID})')

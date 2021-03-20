@@ -1,18 +1,13 @@
-import csv
+from Files.CsvReader import CsvReader
 
 
 class Emotes:
-    def get_emotes_id():
+    def get_emotes_id(self):
         emotesID = []
-        with open('GameAssets/csv_logic/emotes.csv') as csv_file:
-            csv_reader = csv.reader(csv_file, delimiter=',')
-            line_count = 0
-            for row in csv_reader:
-                if line_count == 0 or line_count == 1:
-                    line_count += 1
-                else:
-                    if row[1].lower() != 'true' and row[6].lower != 'true':
-                        emotesID.append(line_count - 2)
-                    line_count += 1
+        reader = CsvReader()
+        rowData = reader.readCsv('GameAssets/csv_logic/emotes.csv')
+        for row in rowData:
+            if row[1].lower() != 'true' and row[6].lower != 'true':
+                emotesID.append(rowData.index(row))
 
-            return emotesID
+        return emotesID

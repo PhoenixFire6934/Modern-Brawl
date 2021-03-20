@@ -13,11 +13,11 @@ class Player:
 	ID = 0
 	token = None
 
-	skinsID       = Skins.get_skins_id()
-	emotesID      = Emotes.get_emotes_id()
-	brawlersID    = Characters.get_brawlers_id()
-	cardsSkillsID = Cards.get_spg_id()
-	cardsUnlockID = Cards.get_brawler_unlock()
+	skinsID       = Skins().get_skins_id()
+	emotesID      = Emotes().get_emotes_id()
+	brawlersID    = Characters().get_brawlers_id()
+	cardsSkillsID = Cards().get_spg_id()
+	cardsUnlockID = Cards().get_brawler_unlock()
 
 
 	brawlers_skins = {}
@@ -90,6 +90,5 @@ class Player:
 
 	def updateAccount(self, var, value):
 		self.DB = DataBase()
-
 		self.Data[var] = value
 		self.DB.updatePlayerAccount('data', json.dumps(self.Data), self.token)

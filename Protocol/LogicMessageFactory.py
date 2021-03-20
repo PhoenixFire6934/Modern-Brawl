@@ -1,4 +1,4 @@
-from Protocol.EndClientTurnMessage import EndClientTurnMessage
+from Protocol.Messages.EndClientTurnMessage import EndClientTurnMessage
 
 from Protocol.Messages.Client.Login.LoginMessage import LoginMessage
 from Protocol.Messages.Client.KeepAliveMessage import KeepAliveMessage
