@@ -1,16 +1,17 @@
-from Protocol.Messages.Server.Home.PlayerProfileMessage import PlayerProfileMessage
+from Logic.Shop import Shop
 from Utils.Reader import Reader
 
-
-class AskProfileMessage(Reader):
+class LogicPurchaseDoubleCoinsCommand(Reader):
     def __init__(self, client, player, initial_bytes):
         super().__init__(initial_bytes)
         self.player = player
         self.client = client
 
     def decode(self):
-        self.ID = self.readLong()
+        pass
 
     def process(self):
-        PlayerProfileMessage(self.client, self.player, self.ID).send()
+        self.player.gems = self.player.gems - Shop.token_doubler['Cost']
+        self.player.updateAccount('Diamonds', self.player.gems)
+
 

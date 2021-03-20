@@ -9,3 +9,6 @@ class Helpers:
     def randomID(self, length = 8):
         return int(''.join([str(random.randint(0, 9)) for _ in range(length)]))
 
+    def randomMapID(self):
+        return random.randint(1, 2147483647)
+

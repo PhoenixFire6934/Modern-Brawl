@@ -104,4 +104,5 @@ class Writer:
         self.writeVint(-1)
 
     writeBoolean = writeBool
-    writeScId = writeDataReference
+    writeInt32   = writeInt
+    writeScId    = writeDataReference

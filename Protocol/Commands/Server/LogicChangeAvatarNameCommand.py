@@ -11,6 +11,6 @@ class LogicChangeAvatarNameCommand(Writer):
         self.state = state
 
     def encode(self):
-        self.writeVint(self.commandID)  # Command ID
-        self.writeString(self.username) # Player Name
-        self.writeVint(0)               # State
+        self.writeVint(self.commandID)
+        self.writeString(self.username)
+        self.writeVint(self.state)

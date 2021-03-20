@@ -24,6 +24,8 @@ class Player:
 	for id in brawlersID:
 		brawlers_skins.update({f'{id}': 0})
 
+	majorVersion, minorVersion, buildVersion = 28, 189, 1
+	resources = []
 	gold, tickets, gems, starpoints, trophies = 10000, 500, 9999, 10000, 12000
 	homeBrawler, homeSkin, nameColor, thumbnail, roomID, mapID, team = 0, 0, 0, 0, 0, 0, 0
 	name, nameSet = '', False
@@ -56,11 +58,13 @@ class Player:
 		Player.trophies       = self.Data['Trophies']
 		Player.tickets        = self.Data['Tickets']
 		Player.gems           = self.Data['Diamonds']
+		Player.resources      = self.Data['Resources']
 		Player.starpower      = self.Data['Starpower']
 		Player.gadget         = self.Data['Gadget']
 		Player.homeBrawler    = self.Data['HomeBrawler']
 		Player.homeSkin       = self.Data['HomeSkin']
 		Player.brawlers_skins = self.Data['HomeSkins']
+
 
 
 	def loadPlayerAccount(self):
@@ -81,7 +85,7 @@ class Player:
 			'ID': self.ID, 'Token': self.token, 'Name': 'Guest', 'NameSet': False, 'Trophies': 99999, 'Tickets': 8888,
 			'Diamonds': 9999, 'Score': 99999, 'ExpPoints': 99999, 'HomeBrawler': 0, 'HomeSkin': 0, 'Starpower': 76,
 			'Gadget': 255, 'Thumbnail': 0, 'NameColor': 0, 'HomeSkins': Player.brawlers_skins,
-			'Resources': [{'ID': 1, 'Amount': 10000}, {'ID': 8, 'Amount': 10000}, {'ID': 9, 'Amount': 10000}, {'ID': 10, 'Amount': 10000}],
+			'Resources': [{'ID': 1, 'Amount': 10000}, {'ID': 8, 'Amount': Player.gold}, {'ID': 9, 'Amount': 10000}, {'ID': 10, 'Amount': Player.starpoints }],
 		}
 
 		self.DB.createPlayerAccount(self.token, self.ID, 9999, json.dumps(data))

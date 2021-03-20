@@ -11,11 +11,10 @@ class LogicSelectSkinCommand(Reader):
     def decode(self):
         for x in range(4):
             self.readVint()
-        self.skinID = self.readScId()[1]
+        self.skinID = self.readDataReference()[1]
         for x in range(5):
             self.readVint()
-        self.player.homeBrawler = self.readScId()[1]
-
+        self.player.homeBrawler = self.readDataReference()[1]
 
 
     def process(self):

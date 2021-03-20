@@ -65,7 +65,7 @@ class Reader(BufferedReader):
         else:
             return False
 
-    def readScId(self):
+    def readDataReference(self):
         a = self.readVint()
         if a != 0:
             b = self.readVint()

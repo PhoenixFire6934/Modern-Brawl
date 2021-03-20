@@ -12,27 +12,23 @@ class TeamChangeMemberSettingsMessage(Reader):
 
 
     def decode(self):
-        self.csvID = self.readVint()
-        if self.csvID == 23:
-            self.skill = self.readVint()
-        else:
-            self.csvID = self.readVint()
-            if self.csvID == 29:
-                self.BrawlerSkinId = self.readVint()
+        self.scID = self.readDataReference()
+        if self.scID[0] == 0:
+            self.scID = self.readDataReference()
 
 
     def process(self):
-        if self.csvID == 29:
-            self.player.homeBrawler = Characters.get_brawler_by_skin_id(self, self.BrawlerSkinId)
+        if self.scID[0] == 29:
+            self.player.homeBrawler = Characters.get_brawler_by_skin_id(self, self.scID[1])
             self.player.starpower   = Cards.get_spg_by_brawler_id(self, self.player.homeBrawler, 4)
             self.player.gadget      = Cards.get_spg_by_brawler_id(self, self.player.homeBrawler, 5)
 
-        elif self.csvID == 23:
-            type = Cards.check_spg_id(self, self.skill)
+        elif self.scID[0] == 23:
+            type = Cards.check_spg_id(self, self.scID[1])
             if  type == '4':
-                self.player.starpower = self.skill
+                self.player.starpower = self.scID[1]
             elif type == '5':
-                self.player.gadget = self.skill
+                self.player.gadget = self.scID[1]
 
 
         self.player.updateAccount('Starpower', self.player.starpower)

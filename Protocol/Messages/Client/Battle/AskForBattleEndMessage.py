@@ -11,19 +11,18 @@ class AskForBattleEndMessage(Reader):
         self.players = {}
 
     def decode(self):
-        self.result   = self.readVint()  # Battle Result
-        self.unk      = self.readVint()  # Unknown
-        self.rank     = self.readVint()  # Player Rank
-        self.mapID    = self.readScId()  # Map ID
-        self.count    = self.readVint()  # Players Count
+        self.result   = self.readVint()
+        self.unk      = self.readVint()
+        self.rank     = self.readVint()
+        self.mapID    = self.readDataReference()
+        self.count    = self.readVint()
 
-        # Players in Battle
         for player in range(self.count):
-            self.brawler     = self.readScId()       # Player Skin SCID
-            self.skin        = self.readScId()       # Player Skin SCID
-            self.team        = self.readVint()       # Player Team
-            self.unk         = self.readVint()       # Unknown
-            self.username    = self.readString()     # Player Name
+            self.brawler     = self.readDataReference()
+            self.skin        = self.readDataReference()
+            self.team        = self.readVint()
+            self.unk         = self.readVint()
+            self.username    = self.readString()
 
             self.players[player] = {f'Name': self.username, 'Team': self.team, 'Brawler': self.brawler[1], 'Skin': self.skin[1]}
 

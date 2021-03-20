@@ -11,6 +11,5 @@ class TeamSetLocationMessage(Reader):
         self.readVint()
         self.player.mapID = self.readVint()
 
-
     def process(self):
         TeamMessage(self.client, self.player).send()

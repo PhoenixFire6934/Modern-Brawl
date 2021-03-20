@@ -12,8 +12,8 @@ class BattleEndMessage(Writer):
         self.players = players
 
     def encode(self):
-        self.writeVint(self.type)   # GameMode Type
-        self.writeVint(self.result) # Battle Result
+        self.writeVint(self.type)
+        self.writeVint(self.result)
         self.writeVint(0)
         self.writeVint(0)
 
@@ -37,7 +37,6 @@ class BattleEndMessage(Writer):
         self.writeVint(0)
         self.writeVint(1)
 
-        # Players in Game Array
         self.writeVint(len(self.players))
 
         for player in self.players:
@@ -51,20 +50,20 @@ class BattleEndMessage(Writer):
             else:
                 self.writeVint(2 if self.team != 0 else 1) if self.type == 2 else self.writeVint(self.team if self.team != 1 else 2)
 
-            self.writeDataReference(16, self.brawler)if self.brawler != -1 else self.writeVint(0) # Player Brawler SCID
-            self.writeDataReference(29, self.skin)   if self.skin != -1 else self.writeVint(0) # Player Skin SCID
+            self.writeDataReference(16, self.brawler)if self.brawler != -1 else self.writeVint(0)
+            self.writeDataReference(29, self.skin)   if self.skin != -1 else self.writeVint(0)
 
-            self.writeVint(99999) # Player Trophies
-            self.writeVint(99999) # Player Highest Trophies
-            self.writeVint(10)    # Player Power Level
+            self.writeVint(99999)
+            self.writeVint(99999)
+            self.writeVint(10)
 
             self.writeBool(False)
 
-            self.writeString(self.username) # Player Name
-
-            self.writeVint(100)      # Unknown
-            self.writeVint(28000000) # Player Profile Icon ID
-            self.writeVint(43000000) # Player Name Color ID
+            # sub_64DF74
+            self.writeString(self.username)
+            self.writeVint(100)
+            self.writeVint(28000000)
+            self.writeVint(43000000)
             self.writeNullVint()
 
 

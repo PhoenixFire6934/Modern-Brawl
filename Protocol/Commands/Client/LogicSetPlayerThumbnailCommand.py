@@ -13,6 +13,5 @@ class LogicSetPlayerThumbnailCommand(Reader):
             self.readVint()
         self.player.thumbnail = self.readVint()
 
-
     def process(self):
         self.player.updateAccount('Thumbnail', self.player.thumbnail)

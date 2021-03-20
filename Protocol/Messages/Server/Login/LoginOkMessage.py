@@ -9,25 +9,21 @@ class LoginOkMessage(Writer):
         self.version = 1
 
     def encode(self):
-        # AccountID, HomeID
         self.writeLong(self.player.ID)
         self.writeLong(self.player.ID)
-
-        # Pass Token
         self.writeString(self.player.token)
 
         self.writeString() # GameCenter ID
         self.writeString() # Facebook ID
 
-        self.writeInt(27)  # Major Version
-        self.writeInt(140) # Build Version
-        self.writeInt(1)   # Minor Version
+        self.writeInt(self.player.majorVersion)
+        self.writeInt(self.player.minorVersion)
+        self.writeInt(self.player.buildVersion)
 
-        self.writeString("prod")  # Environment
-
-        self.writeInt(0)    # Total Sessions
+        self.writeString("prod")
+        self.writeInt(0)    # Sessions Count
         self.writeInt(0)    # Played Time
-        self.writeInt(0)    # Played Time in day
+        self.writeInt(0)    # Days Since Started Playing
 
         self.writeString()  # FacebookApp ID
         self.writeString()  # Server Time

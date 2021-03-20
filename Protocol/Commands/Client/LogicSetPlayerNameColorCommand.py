@@ -13,6 +13,5 @@ class LogicSetPlayerNameColorCommand(Reader):
             self.readVint()
         self.player.nameColor = self.readVint()
 
-
     def process(self):
         self.player.updateAccount('NameColor', self.player.nameColor)

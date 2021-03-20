@@ -10,8 +10,7 @@ class LogicSetDoNotDistrubCommand(Writer):
         self.player = player
 
     def encode(self):
-        self.writeVint(self.commandID)  # Command ID
-        self.writeBool(self.player.dnd) # Do Not Disturb
-
-        self.writeInt(0)                # Unknown
-        self.writeVint(0)               # Unknown
+        self.writeVint(self.commandID)
+        self.writeBool(self.player.dnd)
+        self.writeInt32(0)
+        self.writeVint(0)

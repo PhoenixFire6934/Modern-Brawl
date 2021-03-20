@@ -12,12 +12,12 @@ class LoginMessage(Reader):
         self.client = client
 
     def decode(self):
-        self.player.ID    = self.readLong()   # AccountID
-        self.player.token = self.readString() # Pass Token
+        self.player.ID    = self.readLong()
+        self.player.token = self.readString()
 
-        self.player.major = self.readInt()    # Client Major Version
-        self.player.minor = self.readInt()    # Client Minor Version
-        self.player.build = self.readInt()    # Client Build Version
+        self.player.majorVersion = self.readInt()
+        self.player.minorVersion = self.readInt()
+        self.player.buildVersion = self.readInt()
 
 
     def process(self):

@@ -9,8 +9,8 @@ class LogicClientAvatar:
         self.writeLogicLong(self.player.ID)
         self.writeLogicLong(self.player.ID)
 
-        self.writeString(self.player.Data['Name'])  # Player Name
-        self.writeBool(self.player.Data['NameSet']) # Name Set By User
+        self.writeString(self.player.Data['Name'])
+        self.writeBool(self.player.Data['NameSet'])
 
         self.writeInt(0)
 
@@ -24,33 +24,33 @@ class LogicClientAvatar:
             self.writeVint(unlock_id)
             self.writeVint(1)
         for resource in self.player.Data['Resources']:
-            self.writeScId(5, resource['ID'])  # Resource SCID
-            self.writeVint(resource['Amount']) # Resource Amount
+            self.writeDataReference(5, resource['ID'])
+            self.writeVint(resource['Amount'])
 
         # Brawlers Trophies array
         self.writeVint(len(self.player.brawlersID))
         for brawler_id in self.player.brawlersID:
-            self.writeScId(16, brawler_id)
+            self.writeDataReference(16, brawler_id)
             self.writeVint(0)
 
         # Brawlers Trophies for Rank array
         self.writeVint(len(self.player.brawlersID))
         for brawler_id in self.player.brawlersID:
-            self.writeScId(16, brawler_id)
+            self.writeDataReference(16, brawler_id)
             self.writeVint(0)
 
-        self.writeVint(0) # array
+        self.writeVint(0)
 
         # Brawlers Upgrade Poitns array
         self.writeVint(len(self.player.brawlersID))
         for brawler_id in self.player.brawlersID:
-            self.writeScId(16, brawler_id)
+            self.writeDataReference(16, brawler_id)
             self.writeVint(0)
 
         # Brawlers Power Level array
         self.writeVint(len(self.player.brawlersID))
         for brawler_id in self.player.brawlersID:
-            self.writeScId(16, brawler_id)
+            self.writeDataReference(16, brawler_id)
             self.writeVint(8)
 
         # Gadgets and Star Powers array
@@ -64,8 +64,8 @@ class LogicClientAvatar:
         for x in range(0):
             pass
 
-        self.writeVint(self.player.gems)  # Gems
-        self.writeVint(self.player.gems)  # Free Gems
+        self.writeVint(self.player.gems)
+        self.writeVint(self.player.gems)
 
         self.writeVint(0)
         self.writeVint(0)

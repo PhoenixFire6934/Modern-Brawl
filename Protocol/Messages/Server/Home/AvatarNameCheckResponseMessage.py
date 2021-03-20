@@ -9,7 +9,6 @@ class AvatarNameCheckResponseMessage(Writer):
         self.username = username
 
     def encode(self):
-        self.writeUInt8(0) # Unknown
-        self.writeInt(0)   # Unknown
-
+        self.writeUInt8(0)
+        self.writeInt32(0)
         self.writeString(self.username)

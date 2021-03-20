@@ -11,60 +11,57 @@ class TeamMessage(Writer):
 
 
     def encode(self):
-        # Gameroom Type
         self.writeVint(self.roomType)
-
         self.writeUInt8(0)
         self.writeVint(1)
 
-        # MapID
         self.writeLong(self.player.roomID)
 
         self.writeUInt8(0)
         self.writeUInt8(0)
-
         self.writeVint(0)
         self.writeVint(0)
 
-        # MapID
         self.writeDataReference(15, self.player.mapID)
 
-        # Players in Room
         self.writeVint(1)
         for x in range(1):
 
             self.writeVint(1)
 
-            self.writeLong(self.player.ID) # AccountID
+            self.writeLong(self.player.ID)
 
-            self.writeDataReference(16, self.player.homeBrawler)  # BrawlerID
-            self.writeDataReference(29, self.player.homeSkin)     # SkinID
+            self.writeDataReference(16, self.player.homeBrawler)
+            self.writeDataReference(29, self.player.homeSkin)
 
-            self.writeVint(99999) # Trophies
-            self.writeVint(99999) # Highest Trophies
-            self.writeVint(10)    # Power Level
+            self.writeVint(99999)
+            self.writeVint(99999)
+            self.writeVint(10)
 
-            self.writeVint(3)     # Player State
-            self.writeVint(0)     # Is Player Ready
-            self.writeVint(0)     # Team (Blue/Red)
+            self.writeVint(3)
+            self.writeVint(0)
+            self.writeVint(0)
             self.writeVint(0)
             self.writeVint(0)
 
-            # Player Name
+            # sub_64DF74
             self.writeString(self.player.Data['Name'])
-
             self.writeVint(100)
-            self.writeVint(28000000 + self.player.thumbnail) # Thumbnail
-            self.writeVint(43000000 + self.player.nameColor) # Name Color
-
+            self.writeVint(28000000 + self.player.thumbnail)
+            self.writeVint(43000000 + self.player.nameColor)
             self.writeNullVint()
 
-            self.writeDataReference(23, self.player.starpower) # StarpowerID
-            self.writeDataReference(23, self.player.gadget)    # GadgetID
+            self.writeDataReference(23, self.player.starpower)
+            self.writeDataReference(23, self.player.gadget)
 
 
-        self.writeVint(0) # array
-        self.writeVint(0) # array
+        self.writeVint(0)
+        for x in range(0):
+            pass
+
+        self.writeVint(0)
+        for x in range(0):
+            pass
 
         self.writeUInt8(0)
         if self.player.useGadget:

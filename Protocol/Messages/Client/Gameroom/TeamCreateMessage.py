@@ -1,6 +1,6 @@
 from Protocol.Messages.Server.Gameroom.TeamMessage import TeamMessage
 from Utils.Reader import Reader
-import random
+from Utils.Helpers import Helpers
 from Logic.EventSlots import EventSlots
 
 
@@ -11,12 +11,12 @@ class TeamCreateMessage(Reader):
         self.client = client
 
     def decode(self):
-        self.mapSlot  = self.readVint() # Map Slot
-        self.mapID    = self.readVint() # Map ID
-        self.roomType = self.readVint() # Gameroom Type
+        self.mapSlot  = self.readVint()
+        self.mapID    = self.readVint()
+        self.roomType = self.readVint()
 
     def process(self):
         self.player.mapID  = EventSlots.maps[self.mapSlot - 1]['ID'] if self.mapSlot != -64 else 269
-        self.player.roomID = random.randint(1, 2147483647)
+        self.player.roomID = Helpers.randomMapID(self)
 
         TeamMessage(self.client, self.player).send()
