@@ -51,8 +51,8 @@ class TeamMessage(Writer):
             self.writeVint(43000000 + self.player.nameColor)
             self.writeNullVint()
 
-            self.writeDataReference(23, self.player.starpower)
-            self.writeDataReference(23, self.player.gadget)
+            self.writeDataReference(23, self.player.starpower) if self.player.starpower != None else self.writeVint(0)
+            self.writeDataReference(23, self.player.gadget)    if self.player.gadget != None else self.writeVint(0)
 
 
         self.writeVint(0)
