@@ -17,8 +17,10 @@ from Protocol.Messages.Client.Gameroom.TeamChangeMemberSettingsMessage import Te
 from Protocol.Messages.Client.Battle.GoHomeFromOfflinePractiseMessage import GoHomeFromOfflinePractiseMessage
 from Protocol.Messages.Client.Battle.AskForBattleEndMessage import AskForBattleEndMessage
 
-packets = {
+from Protocol.Messages.Client.Login.ClientHelloMessage import ClientHelloMessage
 
+packets = {
+    10100: ClientHelloMessage,
     10101: LoginMessage,
     10108: KeepAliveMessage,
     10212: SetNameMessage,
