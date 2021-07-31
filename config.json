@@ -1,5 +1,5 @@
 {
-  "MongoConnectionURL": "mongodb+srv://phoenix:mko09ijn@classic-cluster.tjdgl.mongodb.net/classic-cluster?retryWrites=true&w=majority",
+  "MongoConnectionURL": "",
 
   "StarPoints": 5000,
   "Tickets": 7000,
