@@ -1,6 +1,4 @@
-
-
-from Utils.Reader import Reader
+from ByteStream.Reader import Reader
 
 class LogicSetPlayerThumbnailCommand(Reader):
     def __init__(self, client, player, initial_bytes):
@@ -9,9 +7,10 @@ class LogicSetPlayerThumbnailCommand(Reader):
         self.client = client
 
     def decode(self):
-        for x in range(5):
-            self.readVint()
-        self.player.thumbnail = self.readVint()
+        self.readVInt()
+        self.readVInt()
+        self.readLogicLong()
+        self.player.profile_icon = self.readDataReference()[1]
 
-    def process(self):
-        self.player.updateAccount('Thumbnail', self.player.thumbnail)
+    def process(self, db):
+        db.update_player_account(self.player.token, 'ProfileIcon', self.player.profile_icon)

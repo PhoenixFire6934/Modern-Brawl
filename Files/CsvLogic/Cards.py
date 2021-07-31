@@ -43,3 +43,16 @@ class Cards:
                     elif type == 5:
                         if row[3] == name and row[6].lower() == '5':
                             return cardsData.index(row)
+
+
+
+    def get_unlock_by_brawler_id(self, brawler_id):
+        reader = CsvReader()
+        charsData  = reader.readCsv('GameAssets/csv_logic/characters.csv')
+        cardsData  = reader.readCsv('GameAssets/csv_logic/cards.csv')
+        for row in charsData:
+            if charsData.index(row) == brawler_id:
+                name = row[0]
+                for row in cardsData:
+                    if row[6].lower() == '0' and row[3] == name:
+                        return cardsData.index(row)

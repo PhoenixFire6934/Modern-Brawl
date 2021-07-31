@@ -1,6 +1,4 @@
-
-
-from Utils.Reader import Reader
+from ByteStream.Reader import Reader
 
 class LogicSetPlayerNameColorCommand(Reader):
     def __init__(self, client, player, initial_bytes):
@@ -9,9 +7,10 @@ class LogicSetPlayerNameColorCommand(Reader):
         self.client = client
 
     def decode(self):
-        for x in range(5):
-            self.readVint()
-        self.player.nameColor = self.readVint()
+        self.readVInt()
+        self.readVInt()
+        self.readLogicLong()
+        self.player.name_color = self.readDataReference()[1]
 
-    def process(self):
-        self.player.updateAccount('NameColor', self.player.nameColor)
+    def process(self, db):
+        db.update_player_account(self.player.token, 'NameColor', self.player.name_color)

@@ -1,5 +1,5 @@
-from Logic.Shop import Shop
-from Utils.Reader import Reader
+from ByteStream.Reader import Reader
+from Logic.Home.LogicShopData import LogicShopData
 
 class LogicPurchaseDoubleCoinsCommand(Reader):
     def __init__(self, client, player, initial_bytes):
@@ -8,10 +8,14 @@ class LogicPurchaseDoubleCoinsCommand(Reader):
         self.client = client
 
     def decode(self):
-        pass
+        self.readVInt()
+        self.readVInt()
+        self.readLogicLong()
 
-    def process(self):
-        self.player.gems = self.player.gems - Shop.token_doubler['Cost']
-        self.player.updateAccount('Diamonds', self.player.gems)
+    def process(self, db):
 
+        self.player.token_doubler = self.player.token_doubler + LogicShopData.token_doubler[0]['Amount']
+        db.update_player_account(self.player.token, 'TokenDoubler', self.player.token_doubler)
 
+        self.player.gems = self.player.gems - LogicShopData.token_doubler[0]['Cost']
+        db.update_player_account(self.player.token, 'Gems', self.player.gems)

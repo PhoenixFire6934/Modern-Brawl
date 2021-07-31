@@ -1,6 +1,5 @@
+from ByteStream.Reader import Reader
 from Protocol.Messages.Server.KeepAliveOkMessage import KeepAliveOkMessage
-from Utils.Reader import Reader
-
 
 class KeepAliveMessage(Reader):
     def __init__(self, client, player, initial_bytes):
@@ -11,5 +10,5 @@ class KeepAliveMessage(Reader):
     def decode(self):
         pass
 
-    def process(self):
+    def process(self, db):
         KeepAliveOkMessage(self.client, self.player).send()

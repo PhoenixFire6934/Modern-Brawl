@@ -1,5 +1,4 @@
-from Utils.Writer import Writer
-
+from ByteStream.Writer import Writer
 
 class KeepAliveOkMessage(Writer):
 

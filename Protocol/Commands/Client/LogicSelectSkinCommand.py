@@ -1,5 +1,6 @@
-from Utils.Reader import Reader
+from ByteStream.Reader import Reader
 from Files.CsvLogic.Cards import Cards
+from Files.CsvLogic.Characters import Characters
 
 class LogicSelectSkinCommand(Reader):
     def __init__(self, client, player, initial_bytes):
@@ -7,22 +8,22 @@ class LogicSelectSkinCommand(Reader):
         self.player = player
         self.client = client
 
-
     def decode(self):
-        for x in range(4):
-            self.readVint()
+        self.readVInt()
+        self.readVInt()
+        self.readLogicLong()
         self.skinID = self.readDataReference()[1]
-        for x in range(5):
-            self.readVint()
-        self.player.homeBrawler = self.readDataReference()[1]
 
 
-    def process(self):
-        self.player.brawlers_skins[str(self.player.homeBrawler)] = self.skinID
-        self.player.starpower = Cards.get_spg_by_brawler_id(self, self.player.homeBrawler, 4)
-        self.player.gadget    = Cards.get_spg_by_brawler_id(self, self.player.homeBrawler, 5)
+    def process(self, db):
+        self.player.home_brawler = Characters.get_brawler_by_skin_id(self, self.skinID)
+        db.update_player_account(self.player.token, 'HomeBrawler', self.player.home_brawler)
 
-        self.player.updateAccount('Starpower', self.player.starpower)
-        self.player.updateAccount('Gadget', self.player.gadget)
-        self.player.updateAccount('HomeSkins', self.player.brawlers_skins)
-        self.player.updateAccount('HomeBrawler', self.player.homeBrawler)
+        self.player.selected_skins[str(self.player.home_brawler)] = self.skinID
+        db.update_player_account(self.player.token, 'SelectedSkins', self.player.selected_skins)
+
+        self.player.starpower = Cards.get_spg_by_brawler_id(self, self.player.home_brawler, 4)
+        db.update_player_account(self.player.token, 'StarPower', self.player.starpower)
+
+        self.player.gadget    = Cards.get_spg_by_brawler_id(self, self.player.home_brawler, 5)
+        db.update_player_account(self.player.token, 'Gadget', self.player.gadget)
