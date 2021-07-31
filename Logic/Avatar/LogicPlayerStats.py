@@ -6,7 +6,7 @@ class LogicPlayerStats:
 
             '3v3Victories': 0,
             'ExperiencePoints': accountData['ExperiencePoints'],
-            'Unknown': 0,
+            'Trophies': accountData['Trophies'],
             'HighestTrophies': accountData['HighestTrophies'],
             'UnlockedBrawlersCount': len(accountData['UnlockedBrawlers']),
             'Unknown2': 0,
