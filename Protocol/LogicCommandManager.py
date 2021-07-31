@@ -13,10 +13,10 @@ commands = {
 	505: LogicSetPlayerThumbnailCommand,
 	506: LogicSelectSkinCommand,
 	509: LogicPurchaseDoubleCoinsCommand,
-    519: LogicPurchaseOfferCommand,
-    520: LogicLevelUpCommand,
+	519: LogicPurchaseOfferCommand,
+	520: LogicLevelUpCommand,
 	521: LogicPurchaseHeroLvlUpMaterialCommand,
 	527: LogicSetPlayerNameColorCommand,
-    534: LogicPurchaseBrawlPassCommand
+	534: LogicPurchaseBrawlPassCommand
 
 }
