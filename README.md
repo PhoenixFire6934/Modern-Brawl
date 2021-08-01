@@ -22,3 +22,6 @@ Download this [base APK](https://mega.nz/file/uDoGmLKI#QmTXlIunmwBdGEX30qjuxyBup
 
 ### Need help?
 Open an issue or contact me on **Discord**: PhoenixFire#6879
+
+### Special thanks
+- [athemm](https://github.com/athemm) - for making the patcher.
