@@ -42,7 +42,7 @@ class LogicConfData:
         for x in range(1):
             # IntValueEntry::encode
             self.writeInt(1)         # Unknown
-            self.writeInt(41000000)  # Theme ID
+            self.writeInt(41000000 + self.player.theme_id)  # Theme ID
 
         self.writeVInt(0)
         for x in range(0):
