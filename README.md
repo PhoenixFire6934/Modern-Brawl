@@ -1,4 +1,4 @@
-# Modern Brawl
+# BrawlStars-v28
 
 Brawl Stars v28.189 server emulator written in Python.
 
