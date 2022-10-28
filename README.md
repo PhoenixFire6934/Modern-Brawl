@@ -21,7 +21,7 @@ To connect to your server, a **patched client** is required.
 Download this [base APK](https://mega.nz/file/uDoGmLKI#QmTXlIunmwBdGEX30qjuxyBupX_fiWAOoyY-T81jXdo) and change the IP in `libmg.config.so`
 
 ### Need help?
-Open an issue or contact me on **Discord**: PhoenixFire#6879
+Join us on [Discord](https://discord.gg/FdppDWGRbY)
 
 ### Special thanks
 - [athemm](https://github.com/athemm) - for making the patcher.
